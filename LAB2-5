@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cout << "ВВЕДИТЕ ПОСЛЕДОВАТЕЛЬНОСТЬ: \n";
+    while (n != 0){
+        cin >> n;
+        if(n > 1){
+        if((n == 2) || (n == 3) || ((n*n) % 24 == 1)) {
+                cout << "ЧИСЛО "<< n << " ЯВЛЯЕТСЯ ПРОСТЫМ" << endl;
+                }
+            }
+        }
+   
+    return 0;
+}
