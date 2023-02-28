@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main(int argc, char **argv)
+{
+   int n;
+   float number, sum, srednee;
+   
+   sum = 0;
+   cout << "Введите количество элементов в последовательности: \n";
+   cin >> n;
+   cout << "Введите последовательность:  \n";
+for (int i = 1; i <= n; i++){
+    cin >> number;
+    sum = sum + number;
+    
+    }
+srednee = sum / n;
+cout << "СРЕДНЕЕ АРИФМЕТИЧЕСКОЕ " << srednee << endl; 
+    return 0;
+}
