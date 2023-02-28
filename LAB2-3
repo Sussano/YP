@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+   int n, sum;
+   sum = 0;
+   cout << "ВВЕДИТЕ ПОСЛЕДОВАТЕЛЬНОСТЬ: \n";
+   while (cin >> n && n != 0)
+       if (n>0){
+           sum += n;
+           }
+           cout << "СУММА РОВНА " << sum << endl;
+    return 0;
+}
