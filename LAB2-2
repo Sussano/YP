@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n, i, key;
+    cout << "Введите ключ: \n ";
+    cin >> key; //Считывает ключ
+    i = 0;
+    cout << "Введите последовательность: \n ";
+    while(i == 0){
+        cin >> n;
+        if (n != 0){
+            if (n == key){
+                cout << "НАЙДЕНО ЗНАЧЕНИЕ РАВНОЕ "<< n << endl;
+                break;
+                }else continue;{
+                    i = 0;
+                    };
+            }else{
+                cout << "НЕ НАЙДЕНО " << endl;
+                break;
+                }
+        }
+    
+    return 0;
+}
