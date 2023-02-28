@@ -1,0 +1,17 @@
+#include <iostream>
+#include <set>
+#include <string>
+using namespace std;
+int main()
+{
+        string a, res;
+        getline(cin, a); 
+        for (int i = 0; i < a.length(); i++){
+            if((int)a[i] >= 65 && (int)a[i] <= 90) res += (char)(65 + (((((int)a[i]) + 65) + 1) % 26));
+          /  else if((int)a[i] >= 97 && (int)a[i] <= 122) res += (char)(97 + (((((int)a[i]) - 97) - 31) % 26));/
+            else res += 1;
+            }
+        cout << res << endl;
+    
+    return 0;
+}
