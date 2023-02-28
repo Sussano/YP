@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+double *normirovka(double *massiv, double min, double max, int size)
+{
+
+double *new_massiv =new double[size];
+for (int i = 0; i < size; i++) {
+new_massiv[i] = (massiv[i] - min) / (max - min);
+}
+return new_massiv;
+}
+
+int main ()
+{
+int n;
+cout <<"Введите длину массива: ";
+cin >> n;
+if(n>0){
+double min, max;
+
+double chislo;
+cout <<"Введите значение  массива: " << endl;
+
+cin >> chislo,
+max = chislo;
+
+min =chislo;
+double massiv[n];
+
+for (int i= 1; i <n; i++){
+cin >> chislo;
+massiv[i] = chislo;
+if (chislo <min) {
+    min=chislo;
+}
+if (chislo > max) {
+
+max = chislo;
+
+}
+}
+
+if (max - min != 0) {
+double *new_massiv = normirovka(massiv, min, max, n);
+cout <<"Нормированный массив: " << endl;
+
+for (int i = 0; i < n; i++){
+cout << new_massiv[i] << endl;
+}
+delete[] new_massiv;
+} else {
+cout << "Ошибка нормировка невозможна, таккак массив состоит из одинаковых чисел " << endl;
+}
+} else {
+cout << "Ошибка неправельный размер массива " << endl;
+}
+return 0;
+    
+    }
