@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n, q, w;
+    q = 2;
+    w = 3;
+    cout << "Введите число: \n";
+    cin >> n;
+    if (n > 1){
+        if (n == q || n == w || (n*n) % 24 == 1) {
+            cout << "ЧИСЛО " << n << " ЯВЛЯЕТСЯ ПРОСТЫМ " << endl;
+  
+            }else {
+                cout << "ЧИСЛО " << n << " НЕ ЯВЛЯЕТСЯ ПРОСТЫМ " << endl;
+                }
+        }else {
+            cout << "ЧИСЛО " << n << " НЕ ЯВЛЯЕТСЯ ПРОСТЫМ " << endl;
+            }
+    
+    return 0;
+}
