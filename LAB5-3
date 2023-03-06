@@ -5,7 +5,7 @@
 using namespace std;
 int main()
 {
- string path = "/home/stud/data_v1.txt";
+ string path = "/home/stud/C++Projects/data_v1.txt";
  ifstream fin;
  fin.open(path);
  double sr;
