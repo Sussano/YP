@@ -20,7 +20,7 @@ void normirovka ( double *massiv, double min, double max, int size){
             massiv[0]= chislo;
             for (int i = 1;i < n;i++){
                 cin >> chislo;
-                massiv[0] = chislo;
+                massiv[i] = chislo;
                 if(chislo < min){
                     min = chislo;
                     }
@@ -35,7 +35,7 @@ void normirovka ( double *massiv, double min, double max, int size){
                         cout << massiv[i] << endl;
                         }
                     }else{
-                        cout << "Нормировка невозможна, так как массив состоиит из одинаковых чисел" <<endl;
+                        cout << "Нормировка невозможна, так как массив состоит из одинаковых чисел" <<endl;
                         }
                     
                 
@@ -47,4 +47,3 @@ void normirovka ( double *massiv, double min, double max, int size){
     
     return 0;
 }
-
