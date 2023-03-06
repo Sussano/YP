@@ -1,0 +1,21 @@
+#include <iostream>
+
+#include <ctime>
+#include <string>
+using namespace std;
+string month_ret(int);
+
+int main()
+
+{
+    setlocale(LC_ALL, "ru_RU.UTF-8");
+    time_t *tme = new time_t;
+    time(tme) ;
+    struct tm *timeinfo = localtime(tme);
+    char buffer[80];
+    strftime(buffer,80,"%A, %d %b %Y, %T", timeinfo);
+    cout << buffer;
+
+    return 0;
+
+}
