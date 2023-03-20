@@ -1,0 +1,54 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
+struct Karta {
+    int chislo;
+    int mast;
+    Karta()
+    {
+    }
+    Karta(int first, int second) : chislo(first), mast (second) {};
+    friend ostream& operator << (ostream& outputStream, Karta kart)
+    {
+        return outputStream << to_string(kart.chislo) + to_string(kart.mast);
+    }
+};
+bool color(Karta first, Karta second)
+{
+    if ((first.mast == second.mast) || (first.mast == 0 && second.mast == 1) ||
+        (first.mast == 2 && second.mast ==3) || (second.mast == 1 && first.mast ==
+                0) ||
+        (second.mast == 3 && first.mast == 2))
+        return true;
+    else return false;
+}
+int main ()
+{
+    int mastN = 3, chisloN = 8;
+    setlocale(LC_ALL, "RU");
+    vector<Karta> M;
+    for (int i = 0; i < mastN; i++) {
+        for (int j = 0; j < chisloN; j++) {
+            M.push_back(Karta(i,j));
+        }
+    }
+    cout <<"Обозначения: "<<endl;
+    cout<<"Масть(1 число): 0 - трефы, 1 - черви, 2 - буби, 3 - крести"<<endl;
+    cout<<"Число(2 число): 0 - Шесть, 1 - Семь, 2 - Восемь, 3 - Девять, 4 - Десять, 5 - Валет, 6 - Дама, 7 - Король, 8 - Туз"<<endl<<endl;
+        cout << "Колода "<<endl;
+    for (int i=0; i<36; i++)
+        cout << M[i]<<" ";
+    cout<<endl;
+    cout << "После перемешивания" <<endl;
+    random_shuffle(M.begin(), M.end());
+    for (int i=0; i<36; i++)
+        cout << M[i]<<" ";
+    for (auto it = ++M.begin(); it < M.end(); it++) {
+        it = adjacent_find(--it, M.end(), color);
+        if (it != M.end())
+            cout << "Один цвет: " << *(it) << " и " << *(it++)<<endl;
+    }
+    return 0;
+}
