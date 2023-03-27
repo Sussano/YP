@@ -1,0 +1,52 @@
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include <algorithm>
+#include <crypt.h>
+#include <iomanip>
+#include <fstream>
+#include <mutex>
+using namespace std;
+void findPass(string pass, const string& hash)
+{
+    static mutex mtx;
+    crypt_data *pCryptData = new crypt_data;
+    size_t pos = hash.find_last_of('$');
+    string hashHead = hash.substr(0,pos);
+    do {
+        string
+        newHash(crypt_r(pass.data(),hashHead.data(),pCryptData));
+        if (newHash == hash) {
+            lock_guard<mutex> lock(mtx);
+            cout<<"Hash: "<<hash<<endl<<"Pass: "<<pass<<endl;
+            break;
+        }
+    } while ( next_permutation( pass.begin(), pass.end() ) );
+    delete pCryptData;
+}
+int main()
+{
+    thread
+    p_1(findPass,"123456789","$1$h7Skr0Vb$ipc8FG2QEWL88R6MIsJ/10");
+    thread
+    p_2(findPass,"123456789","$1$Gnh3X9Pq$a1LsX3VVWJA1YzNRe6dv9.");
+    thread
+    p_3(findPass,"123456789","$1$29fvMdvx$LL.QZs7G3S4Q5ea6.idf11");
+    thread
+    p_4(findPass,"123456789","$1$2ZRJ5hDn$4g6I3I3xc7hnTXOZuLdTD1");
+    thread
+    p_5(findPass,"123456789","$1$37Xhu8sp$jz8AjdBHcqvegV9.PLptt/");
+    thread
+    p_6(findPass,"123456789","$1$MdJBM75U$xq8rZyK1ULh/y2tU4gkzk0");
+    thread
+    p_7(findPass,"123456789","$1$Es9HY7VR$4/WpkGDwKh.wbANw9qZZB0");
+    p_1.join();
+    p_2.join();
+    p_3.join();
+    p_4.join();
+    p_5.join();
+    p_6.join();
+    p_7.join();
+
+    return 0;
+}
